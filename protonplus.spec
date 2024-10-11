@@ -17,7 +17,12 @@ BuildRequires:  pkgconfig(libadwaita-1)
 BuildRequires:  pkgconfig(libarchive)
 BuildRequires:  pkgconfig(libsoup-3.0)
 
-Requires:       glib-networking
+Requires: glib-networking
+
+# Make sure that it run also on Qtas desktop
+Requires: libadwaita-common
+Requires: gtk4
+Requires: %{_lib}gee-gir0.8
 
 %description
 %{repo} is a simple and powerful manager for:
@@ -49,3 +54,8 @@ Supports Steam, Lutris, Heroic and Bottles.
 %doc README.md CONTRIBUTING.md CODE_OF_CONDUCT.md SECURITY.md
 # install symlink prontonplus -> com.vysp3r.ProtonPlus
 %{_bindir}/%{name}
+%{_bindir}/com.vysp3r.ProtonPlus
+%{_datadir}/applications/com.vysp3r.ProtonPlus.desktop
+%{_datadir}/glib-2.0/schemas/com.vysp3r.ProtonPlus.gschema.xml
+%{_datadir}/metainfo/com.vysp3r.ProtonPlus.metainfo.xml
+%{_iconsdir}/hicolor/*x*/apps/com.vysp3r.ProtonPlus.png
