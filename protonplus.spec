@@ -1,5 +1,5 @@
 Name:           protonplus
-Version:        0.4.27
+Version:        0.4.28
 Release:        1
 Summary:        Simple and powerful manager for Wine, Proton, DXVK and VKD3D
 License:        GPL-3.0-or-later
