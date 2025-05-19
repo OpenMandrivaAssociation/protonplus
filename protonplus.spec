@@ -10,6 +10,7 @@ BuildRequires:  gettext
 BuildRequires:  meson
 BuildRequires:  vala
 BuildRequires:  appstream-util
+BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(gee-0.8)
 BuildRequires:  pkgconfig(gtk4)
 BuildRequires:  pkgconfig(json-glib-1.0)
