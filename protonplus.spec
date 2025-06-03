@@ -1,5 +1,5 @@
 Name:           protonplus
-Version:        0.4.31
+Version:        0.4.32
 Release:        1
 Summary:        Simple and powerful manager for Wine, Proton, DXVK and VKD3D
 License:        GPL-3.0-or-later
@@ -47,15 +47,11 @@ Supports Steam, Lutris, Heroic and Bottles.
 
 %find_lang com.vysp3r.ProtonPlus
 
-# create symlink prontonplus -> com.vysp3r.ProtonPlus
-%{__ln_s} %{_bindir}/%{flatpak_name} %{buildroot}%{_bindir}/%{name}
-
 %files -f com.vysp3r.ProtonPlus.lang
 %license LICENSE.md
 %doc README.md CONTRIBUTING.md CODE_OF_CONDUCT.md SECURITY.md
 # install symlink prontonplus -> com.vysp3r.ProtonPlus
-%{_bindir}/%{name}
-%{_bindir}/com.vysp3r.ProtonPlus
+%{_bindir}/*
 %{_datadir}/applications/com.vysp3r.ProtonPlus.desktop
 %{_datadir}/glib-2.0/schemas/com.vysp3r.ProtonPlus.gschema.xml
 %{_datadir}/metainfo/com.vysp3r.ProtonPlus.metainfo.xml
