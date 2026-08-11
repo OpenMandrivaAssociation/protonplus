@@ -17,6 +17,7 @@ BuildRequires:  pkgconfig(json-glib-1.0)
 BuildRequires:  pkgconfig(libadwaita-1)
 BuildRequires:  pkgconfig(libarchive)
 BuildRequires:  pkgconfig(libsoup-3.0)
+BuildRequires:  pkgconfig(sdl3)
 
 Requires: glib-networking
 
