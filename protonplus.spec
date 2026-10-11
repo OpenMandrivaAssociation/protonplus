@@ -5,7 +5,9 @@ Summary:        Simple and powerful manager for Wine, Proton, DXVK and VKD3D
 Group:        Graphical desktop/GNOME
 License:        GPL-3.0-or-later
 URL:            https://github.com/Vysp3r/ProtonPlus
-Source0:        https://github.com/Vysp3r/ProtonPlus/archive/v%{version}/ProtonPlus-%{version}.tar.gz
+Source0:        https://github.com/Vysp3r/ProtonPlus/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+
+BuildSystem:	meson
 
 BuildRequires:  gettext
 BuildRequires:  meson
@@ -21,9 +23,9 @@ BuildRequires:  pkgconfig(libarchive)
 BuildRequires:  pkgconfig(libnotify)
 BuildRequires:  pkgconfig(libsoup-3.0)
 BuildRequires:  pkgconfig(sdl3)
+BuildRequires:	pkgconfig(appstream)
 
 Requires: glib-networking
-
 Requires: gtk4
 
 %description
@@ -39,12 +41,7 @@ Supports Steam, Lutris, Heroic and Bottles.
 %prep
 %autosetup -n ProtonPlus-%{version} -p1
 
-%build
-%meson
-%meson_build
-
-%install
-%meson_install
+%install -a
 chrpath -d %{buildroot}%{_bindir}/protonplus || :
 
 %find_lang com.vysp3r.ProtonPlus
