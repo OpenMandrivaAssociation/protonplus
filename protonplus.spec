@@ -1,33 +1,33 @@
 Name:           protonplus
-Version:        0.6.3
+Version:        0.6.8
 Release:        1
 Summary:        Simple and powerful manager for Wine, Proton, DXVK and VKD3D
+Group:        Graphical desktop/GNOME
 License:        GPL-3.0-or-later
 URL:            https://github.com/Vysp3r/ProtonPlus
-Source0:        https://github.com/Vysp3r/ProtonPlus/archive/%{version}/ProtonPlus-%{version}.tar.gz
+Source0:        https://github.com/Vysp3r/ProtonPlus/archive/v%{version}/ProtonPlus-%{version}.tar.gz
 
 BuildRequires:  gettext
 BuildRequires:  meson
 BuildRequires:  vala
 BuildRequires:  appstream-util
 BuildRequires:  desktop-file-utils
+BuildRequires:  chrpath
 BuildRequires:  pkgconfig(gee-0.8)
 BuildRequires:  pkgconfig(gtk4)
 BuildRequires:  pkgconfig(json-glib-1.0)
 BuildRequires:  pkgconfig(libadwaita-1)
 BuildRequires:  pkgconfig(libarchive)
+BuildRequires:  pkgconfig(libnotify)
 BuildRequires:  pkgconfig(libsoup-3.0)
 BuildRequires:  pkgconfig(sdl3)
 
 Requires: glib-networking
 
-# Make sure that it run also on Qtas desktop
-Requires: libadwaita-common
 Requires: gtk4
-Requires: %{_lib}gee-gir0.8
 
 %description
-%{repo} is a simple and powerful manager for:
+protonplus is a simple and powerful manager for:
  - Wine
  - Proton
  - DXVK
@@ -45,6 +45,7 @@ Supports Steam, Lutris, Heroic and Bottles.
 
 %install
 %meson_install
+chrpath -d %{buildroot}%{_bindir}/protonplus || :
 
 %find_lang com.vysp3r.ProtonPlus
 
