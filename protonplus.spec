@@ -1,11 +1,11 @@
 Name:           protonplus
-Version:        0.6.8
+Version:        0.6.9
 Release:        1
 Summary:        Simple and powerful manager for Wine, Proton, DXVK and VKD3D
-Group:        Graphical desktop/GNOME
+Group:        	Tools
 License:        GPL-3.0-or-later
 URL:            https://github.com/Vysp3r/ProtonPlus
-Source0:        https://github.com/Vysp3r/ProtonPlus/archive/refs/tags/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/Vysp3r/ProtonPlus/archive/v%{version}/ProtonPlus-%{version}.tar.gz
 
 BuildSystem:	meson
 
@@ -16,20 +16,26 @@ BuildRequires:  appstream-util
 BuildRequires:  desktop-file-utils
 BuildRequires:  chrpath
 BuildRequires:  pkgconfig(gee-0.8)
+BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:  pkgconfig(gtk4)
 BuildRequires:  pkgconfig(json-glib-1.0)
 BuildRequires:  pkgconfig(libadwaita-1)
 BuildRequires:  pkgconfig(libarchive)
 BuildRequires:  pkgconfig(libnotify)
+BuildRequires:  pkgconfig(sqlite3)
+BuildRequires:  pkgconfig(yaml-0.1)
 BuildRequires:  pkgconfig(libsoup-3.0)
 BuildRequires:  pkgconfig(sdl3)
 BuildRequires:	pkgconfig(appstream)
 
 Requires: glib-networking
 Requires: gtk4
+# libdwaita-common pulls in all the necessary adwaita dependencies, and gee pulls in the required typelib—components that might otherwise be omitted on non-GTK systems.
+Requires: libadwaita-common
+Requires: %{_lib}gee-gir0.8
 
 %description
-protonplus is a simple and powerful manager for:
+ProtonPlus is a simple and powerful manager for:
  - Wine
  - Proton
  - DXVK
